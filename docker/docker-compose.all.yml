@@ -35,7 +35,7 @@ services:
         source: pgdb-data
         target: '/var/lib/postgresql/data'
     ports:
-      - '127.0.0.1:${DBPORT}:5432'
+      - '${DBPORT}:5432'
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: ${DBUSER}
