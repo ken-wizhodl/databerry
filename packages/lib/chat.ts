@@ -80,7 +80,7 @@ const getCustomerSupportMessages = ({
     ${context}
 
     Question: ${query}
-    
+
     Answer:`),
   ];
 };
@@ -225,6 +225,9 @@ const chat = async ({
     modelName: _modelName,
     temperature: temperature || 0,
     streaming: Boolean(stream),
+    configuration: {
+      basePath: process.env.OPENAI_BASE_PATH,
+    },
     callbacks: [
       {
         handleLLMNewToken: stream,

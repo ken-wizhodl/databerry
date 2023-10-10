@@ -33,7 +33,12 @@ export type Point = {
 };
 
 const initEmbeddingModel = () => {
-  const embeddings = new OpenAIEmbeddings();
+  const embeddings = new OpenAIEmbeddings(
+    {},
+    {
+      basePath: process.env.OPENAI_BASE_PATH,
+    }
+  );
 
   if (process.env.APP_ENV === 'test') {
     embeddings.embedDocuments = embedDocumentsMock;

@@ -35,6 +35,10 @@ const chat = async ({
     presencePenalty: otherProps.presencePenalty,
     maxTokens: otherProps.maxTokens,
 
+    configuration: {
+      basePath: process.env.OPENAI_BASE_PATH,
+    },
+
     callbacks: [
       {
         handleLLMNewToken: stream,
